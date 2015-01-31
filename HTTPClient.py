@@ -18,16 +18,9 @@ response = conn.recv(8192)
 print response
 response_list = response.split("\r\n\r\n")
 response_headers = response_list[0]
-print type(response_headers)
-for i in response_list:
-	print "PART"
-	print i
 content = response_list[1]
 contents = content.split("\r\n")
 gz = content
-print "psdspdsa"
-print contents[0]
-print gz
 data = gzip.GzipFile(fileobj=StringIO(gz)).read()
 data = str(data)
 print data
